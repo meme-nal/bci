@@ -52,3 +52,16 @@ class DriveAural2(Dataset):
 
     raw_data:mne.io.Raw = mne.io.read_raw_edf(os.path.join(output_dir, output_filename))
     self.data, _ = raw_data[:]
+
+
+class MotorEeg(Dataset):
+  def __init__(self, output_dir:str)->None:
+    url:str = 'https://drive.google.com/uc?id=1em1YPuUymaCI5ozxjo4SAH-eLGxliLzl'
+    output_filename:str = 'motor_eeg.zip'
+
+    if not os.path.exists(output_dir):
+      os.makedirs(output_dir)
+    if not os.path.isfile(os.path.join(output_dir, output_filename)):
+      gdown.download(url, os.path.join(output_dir, output_filename), quiet=False)
+
+    self.data = 1.0
