@@ -19,3 +19,6 @@ def load_data(dataset:datasets.Dataset)->numpy.ndarray:
     
     case datasets.DriveAural2:
       return dataset.data
+
+    case datasets.MotorEeg:
+      return dataset.data
